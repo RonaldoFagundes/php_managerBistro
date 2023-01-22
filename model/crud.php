@@ -13,30 +13,16 @@
     private $pdo = "";
 
 
+     private $msg = "";
+   
+
+
+
       function __construct()
       {
         $this->conn = new Conn();
         $this->pdo = $this->conn->pdo();
       }
-
-
-
-
-
-    /* public function listarProdutos()
-    {       
-  
-    $query = $this->pdo->query("SELECT * FROM `tb_produtos` ");
-    $fetch = $query->fetchAll(PDO::FETCH_OBJ);
-   
-     if(count ($fetch) >0 ){
-      $query = $this->pdo->query("SELECT * FROM `tb_produtos` ");
-      return $query;
-     }else{
-      return false;
-     } 
-
-   } */
 
 
 
@@ -50,39 +36,118 @@
    }
 
 
-   public function insertProduto()
-   {
-    echo ' chegou no crud para o metodo insert ';
+
+
+   public function selectProdutosBy($id)
+   {    
+   $query = $this->pdo->query("SELECT * FROM `tb_produtos` WHERE id=$id "); 
+   $row = $query->fetch();
+
+      return $row ; 
    }
 
 
-   public function updateProduto($id)
+
+
+
+  public function insertProduto(  $img, $name, $info, $price, $storage, $make)
    {
-    echo ' chegou no crud o id nº '.$id.' para o metodo update ';
+
+   $query = $this->pdo->prepare(" INSERT INTO tb_produtos (img, nome, info, preco, estoque, producao ) VALUES( '$img', '$name', '$info', '$price', '$storage', '$make') ");
+
+        if ($query->execute()){
+           return true;
+            
+        }else{
+
+        $err = $query->errorInfo();
+          $this->setMsg($err[2]);
+            return false; 
+      }        
+     
    }
+
+
+
+
+
+
+   public function updateProduto($id, $img, $name, $info, $price, $storage, $make)
+   {
+    $query = $this->pdo->prepare("UPDATE tb_produtos SET img='$img' , nome='$name',  info='$info' , preco='$price',  estoque='$storage',  producao='$make' WHERE id='$id' ");
+ 
+         if ($query->execute()){
+              return true;
+         }else{
+          $err = $query->errorInfo();
+          $this->setMsg($err[2]);
+             return false;
+         }     
+   
+   }
+
+
+
 
 
    public function deleteProduto ($id)
    {
-    echo ' chegou no crud o id nº '.$id.' para o metodo delete ';
+    $query = $this->pdo->prepare("DELETE from tb_produtos WHERE id='$id' ");
+
+     if ($query->execute()){
+        return true;
+     }else{
+       $err = $query->errorInfo();
+       $this->setMsg($err[2]);
+       return false;
+      }   
    }
 
 
 
 
 
-   /*
-   public function restartSales($id, $value)
-   {
+   public function logar ($email , $password){
 
-    $query = $this->pdo->prepare("UPDATE `tb_produtos` SET nome= :valor  WHERE id= :id ");
- 
- 
-    $query->bindValue(':id', $id);
-    $query->bindValue(':valor', $value);    
-    $query->execute();
+
+         $e = 'bistro@gamil.com';
+         $p = '123456';
+         
+         $user = 'Neyde';
+
+
+
+
+        if ($e === $email && $p === $password ){
+               $this->setMsg($user);
+               return true;
+          }else{
+               return false ;
+          }
+
+
+          
+          
    }
-   */
+
+
+
+
+
+
+   
+   public function setMsg ($msg){
+       $this->msg = $msg;
+   } 
+
+   public function getMsg(){
+      return $this->msg;
+   } 
+
+
+
+ 
+
 
    
      
