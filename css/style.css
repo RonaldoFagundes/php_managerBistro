@@ -26,42 +26,88 @@ body{
 h1{
     /*
 	font-family: 'Open Sans', sans-serif;
-    font-family: "Orelega One", sans-serif;
-	*/
     font-family: 'Lobster', cursive;
+    */
+    font-family: "Orelega One", sans-serif;
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 2.1rem;
     line-height: 1.66667em;
     text-transform: capitalize;
-    color: rgba(255, 99, 70, 1.0);
+    color: rgb(248, 59, 26);
 }
 
 
 
 
-h2{
-    
-	font-family: 'Open Sans', sans-serif;
-    /* font-family: "Orelega One", sans-serif; */
-	
-    /*font-family: 'Lobster', cursive;*/
+h2{   	
+    font-family: "Orelega One", sans-serif;
     font-weight: bold;
-    font-size: 1.9em;
-    line-height: 1.66667em;
-    text-transform: capitalize;
-   /*  color: rgba(255, 99, 70, 1.0); */
+    font-size: 1.7em;
+    line-height: 1.444447em;
+    text-transform: capitalize;   
     color: rgb(146, 28, 7);
 }
+
+
+span{
+    color: rgb(146, 28, 7);
+    font-weight: bold;
+}
+
 
 
 
 
 @media (min-width: 360px) and (max-width: 700px) {
     h1,h2{
-        font-size: 1.0rem;
+        font-size: 1.2rem;
     }
 
 }
+
+
+
+
+.btn{
+    border-radius: 10px;
+    width: 200px;
+    background-color: rgba(255, 255, 223, 0.7);
+    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
+    color: rgba(255, 19, 20, 1.0);
+    font-weight: bold;
+    font-size: 1.0em;
+ }
+
+ .btn:hover{
+    background-color: rgba(201, 45, 17, 0.7);
+ }
+
+
+
+ label{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.0em;
+    line-height: 1.66667em;
+    text-transform: capitalize;
+    color: rgb(133, 5, 5);
+}
+
+
+
+
+
+ input[type=text],
+ input[type=password], 
+ input[readonly]
+ {
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    color: rgb(141, 4, 4);   
+}
+
 
 
 
@@ -73,85 +119,114 @@ h2{
 
 /*  login */
 
+.content-login input{   
+    width: 200px;
+ }
+
+.container-login h2{
+    margin-left: 46%;
+}
+
+
+.container-login p{
+    color: rgb(216, 119, 8);
+    border: none;
+   }
+
+.container-login p:hover{
+    color: rgb(255, 65, 12);
+}
+
 
 .container-login{
     width: auto;
-    height: 800px;
-    text-align: center;
+    height: 800px;   
 }
-
 
 .content-login{
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    margin-top: 100px;
-    
+    margin-top: 100px;    
+}
+
+.container-login .btnInsert{
+    border: none;
+    padding: 2px;
+    margin-left: 42%;
 }
 
 
-.content-login label{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.0em;
-    line-height: 1.66667em;
-    text-transform: capitalize;
-    color: rgba(255, 19, 20, 1.0);
-}
 
-
-.content-login input{
-   border-radius: 10px;
-   width: 200px;
-}
-
-.content-login button{
-    border-radius: 10px;
-    width: 200px;
-
-    background-color: rgba(255, 255, 223, 0.7);
-    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-
-    color: rgba(255, 19, 20, 1.0);
-    font-weight: bold;
-    font-size: 1.0em;
- }
-
- .content-login button:hover{
-    background-color: rgba(201, 45, 17, 0.7);
- }
-
-
- .container-login .msg{
+.container-login .msg{
     width: 600px;
     margin-left: 29%;     
 }
 
 
+.container-login .content-modal h2{
+  width: 300px;
+  margin-left: 200px;
+  margin-bottom: 30px;  
+}
 
-@media (min-width: 360px) and (max-width: 700px) {   
-   
-    .content-login input{       
-        width: 100%;
-     }     
-     .content-login button{
-        width: 100%;
-        margin-top: 50px;
-     }     
-   
-     .container-login .msg{
-        width: 300px;
-        margin-left: 14%; 
-    }
 
+.container-login .content-modal span{
+    margin-left: 260px;
+    margin-top: 50px;
 }
 
 
 
 
 
+@media (min-width: 360px) and (max-width: 700px) {   
+   
+    .container-login{       
+        height: 900px;       
+    }
+
+    .container-login h2{
+        margin-left: 40%;
+    }
+
+    .content-login input{       
+        width: 100%;
+     }  
+
+   
+     .content-login button{
+        width: 60%;
+        margin-left: 18%;
+        margin-top: 30px;
+     }     
+   
+
+     .container-login .btnInsert{       
+        margin-left: 18%;
+    }
+
+
+
+     .container-login .msg{
+        width: 300px;
+        margin-left: 14%; 
+    }
+
+
+    .container-login .content-modal h2{       
+        margin-left: 38px;       
+      }
+
+
+    .container-login .content-modal span{
+        margin-left: 100px; 
+    }
+
+
+
+}
 
 
 
@@ -168,12 +243,22 @@ h2{
 
 
 .header{
-    text-align: center;
+    width: auto;
+    height: 100px;   
     margin-bottom: 80px;
+    display: flex;
+    justify-content: space-around;    
    }
 
 
+.btn-log-out{
+    border-radius: 10px;
+    width: 100px;   
+}
 
+.return-change{
+    text-align: center;
+}
 
 .list-products{
     height:1000px;
@@ -187,41 +272,26 @@ h2{
 
 
 
-.list-products .btnInsert{
-    border-radius: 10px;
-    width: 200px;
-
-    background-color: rgba(255, 255, 223, 0.7);
-    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-
-    color: rgba(255, 19, 20, 1.0);
-    font-weight: bold;
-    font-size: 1.0em;
- }
-
-
-
-
-
-
 
 @media (min-width: 360px) and (max-width: 700px) {
 
     .header{
-     width: auto;    
+     width: auto; 
+     margin-top: 30px;
+     margin-bottom: 5px;  
      }
 
+     .btn-log-out{
+        width: 60px;
+        font-size: 0.6rem;
+     }
 
     .list-products .btnInsert{
-         width: 140px;
-         font-size: 0.8rem;
+      width: 140px;
+      font-size: 0.8rem;
     }
 
 }
-
-
-
 
 
 
@@ -231,21 +301,15 @@ h2{
 
 
 
-
-
 .table{
     background-color: rgba(255, 155, 23, 0.7);
     background-image: linear-gradient(to top, transparent, rgba(211, 169, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-    
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);    
 }
 
 
  .table th{
-    font-family: 'Open Sans', sans-serif;
-    /* font-family: "Orelega One", sans-serif; */
-	
-    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Open Sans', sans-serif;    
     font-weight: bold;
     font-size: 1.2rem;
     line-height: 1.66667em;
@@ -254,12 +318,8 @@ h2{
  }
 
 
-
  .table td{
-    font-family: 'Open Sans', sans-serif;
-    /* font-family: "Orelega One", sans-serif; */
-	
-    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Open Sans', sans-serif;    
     font-weight: bold;
     font-size: 1.0em;
     line-height: 1.66667em;
@@ -267,30 +327,10 @@ h2{
     color: rgb(136, 27, 8);
  }
 
-
  
- .table .btn{
-    border-radius: 10px;
+ .table .btn{    
     width: 80px;
-    margin-bottom: 5px;
-    background-color: rgba(255, 255, 223, 0.7);
-    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-
-    color: rgba(255, 19, 20, 1.0);
-    font-weight: bold;
-    font-size: 1.0em;
- }
-
-
- .btnInsert:hover{
-    background-color: rgba(201, 45, 17, 0.7);
-    color: azure;
- }
-
- .table .btn:hover{
-    background-color: rgba(201, 45, 17, 0.7);
-    color: azure;
+    margin-bottom: 10px;
  }
 
 
@@ -298,38 +338,30 @@ h2{
 
  @media (min-width: 360px) and (max-width: 700px) {
 
-
     .container .table th{
          font-size: 0.9rem;
          line-height: 1.2222em;        
-      }
- 
+      } 
  
       .container .table td img{
           width: 50px;
           height: 50px;
       }
- 
+
       .container .table td{
          font-size: 0.8rem;
          line-height: 1.00000em;        
       }
-     
- 
+      
       .container .table .btn{
          width: 60px;        
          font-size: 0.8em;
       }
  
-     
- 
- 
+      
  
   }
  
-
-
-
 
 
 
@@ -342,12 +374,7 @@ h2{
     z-index:2000;
     padding: 50px;
     display:none;
-    /*
-    background-color: rgba(255, 255, 223, 0.7);
-    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-    */
-}
+  }
 
 
 
@@ -360,9 +387,7 @@ h2{
     border-radius: 30px;
     background-color: rgba(255, 155, 23, 0.7);
     background-image: linear-gradient(to top, transparent, rgba(211, 169, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);   
-
-    
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);       
 }
 
 
@@ -384,6 +409,7 @@ h2{
 
     .container-modal .content-modal .btn{       
         width: 120px;
+        margin-bottom: 10px;
     } 
     .content-modal .msg{   
         margin-left: 0%;
@@ -438,70 +464,10 @@ h2{
 }
 
 
-.content-modal label{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.0em;
-    line-height: 1.66667em;
-    text-transform: capitalize;
-    color: rgb(133, 5, 5);
-}
-
-.content-modal input{
-    font-weight: bold;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    color: rgb(141, 4, 4);   
-}
-
-
-
-.content-modal .btn{
-    border-radius: 10px;
-    width: 148px;
-    margin-bottom: 5px;
-    background-color: rgba(255, 255, 223, 0.7);
-    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-
-    color: rgba(255, 19, 20, 1.0);
-    font-weight: bold;
-    font-size: 1.0em;
-
-}
-
-
- .content-modal .btn:hover{
-    background-color: rgba(201, 45, 17, 0.7);
-    color: azure;
- }
-
-
-
-
- .content-modal .msg{   
-    margin-left: 8%;	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 /*  update  e delete */
-
-
 
 .container-update{
     width: auto;
@@ -515,24 +481,22 @@ h2{
 
 
 @media (min-width: 360px) and (max-width: 700px) {
-   
-
 
     .container-update{
         height: 1000px;
-
-
     }
-
 
     .container-update .content-update{
         width: 93%;
         margin-left: 12px ;
+    }   
+
+    .container-update .content-update .btn{       
+        margin-bottom: 15px;
     }
 
+
 }
-
-
 
 
 
@@ -542,50 +506,16 @@ h2{
     margin-left: 20%;
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: 30px;
-    
+    border-radius: 30px;    
     background-color: rgba(255, 155, 23, 0.7);
     background-image: linear-gradient(to top, transparent, rgba(211, 169, 95, 0.9));
     box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7); 
 }
 
 
-
-
-.content-update span, label{
-    font-family: 'Open Sans', sans-serif;
-    /* font-family: "Orelega One", sans-serif; */
-	
-    /*font-family: 'Lobster', cursive;*/
-    font-weight: bold;
-    font-size: 1.0em;
-    line-height: 1.66667em;
-    text-transform: capitalize;
-    color: rgb(136, 27, 8);
-}
-
-
-
-.content-update input{
-    font-weight: bold;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    color: rgb(141, 4, 4);
-}
-
-
-
-.content-update .btn{
-    border-radius: 10px;
+.content-update .btn{   
     width: 160px;
     margin-bottom: 5px;
-    background-color: rgba(255, 255, 223, 0.7);
-    background-image: linear-gradient(to top, transparent, rgba(251, 195, 95, 0.9));
-    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.7);
-
-    color: rgba(255, 19, 20, 1.0);
-    font-weight: bold;
-    font-size: 1.0em;
  }
 
 
@@ -593,3 +523,25 @@ h2{
     background-color: rgba(201, 45, 17, 0.7);
     color: azure;
  }
+
+
+
+
+
+
+  #msgError {
+    display: none;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
+
+  #msgError.visible {
+    display: block;
+    color: rgb(105, 21, 21);
+  }
+
+
+  input.invalid {
+    border-color: rgb(255, 0, 21);
+  }

@@ -1,11 +1,20 @@
 
 
-   <?php
-    $successMsg = $_GET['msgOk'] ;         
-    $errorMsg   = $_GET['msgError']; 
-    $arrayProduct = unserialize(urldecode($_GET['product']));
-        
-    ?>
+  <?php
+ 
+    $arrayProduct = unserialize(urldecode($_GET['product']));       
+
+    $msgError = "";
+
+    if(isset($_SESSION['msgError'])){          
+      $msgError = ($_SESSION['msgError']) ;
+     }
+
+  ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,19 +37,12 @@
     
 
 
- <section class="container-update"> 
-
-
+<section class="container-update"> 
 
 
   <div class="content-update">
 
-
-
-
-    <h2>Editar Produtos</h2>
-
-    
+    <h2>Editar Produtos</h2>    
      
 
     <div class="info-prod">
@@ -60,18 +62,16 @@
 
   
    
-    <form method="post" action="../controller/produtos.php">
+ <form method="post" action="../controller/produtos.php">
 	   
 
        <input type="hidden" name="id" value="<?php  echo $arrayProduct['id'] ?>">
 
 
-        <input type="hidden" name="update" value="">
-	        
-        
-             
+        <input type="hidden" name="update" value="">	        
+                     
 
-	     <div class="row mb-3"> 
+	    <div class="row mb-3"> 
 
 		    <label class="col-sm-3 col-form-label">Imagem</label>
 			
@@ -81,10 +81,9 @@
 			  </div>
 		 
 		 </div>
+	   	   
 	   
-	   
-	   
-	     <div class="row mb-3">
+	    <div class="row mb-3">
 		 
 		    <label class="col-sm-3 col-form-label">Nome</label>
 			
@@ -94,8 +93,7 @@
 			  </div>
 		 
 		 </div>
-		 
-		 
+		 		 
 		 
 		 <div class="row mb-3">
 		 
@@ -133,10 +131,9 @@
 		 
 		 </div>
 	   
+	      
 	   
-	   
-	   
-	    <div class="row mb-3">
+	   <div class="row mb-3">
 		 
 		    <label class="col-sm-3 col-form-label">Produção</label>
 			
@@ -149,86 +146,41 @@
 	   
 	   
 	   
-	   <div class="row mb-3">		 
+	   <div class="row mb-3">	
 
-		   <div class="offset-sm-3  col-sm-3 d-grid">
-			
 
-		 	   <button type="submit" class="btn btn-primary">Atualizar</button>   
-                   
-
-            <!--  <a class="btn btn-primary"        
-              href='../controller/produtos.php?action=insert'  role="button">
-               Novo Produto
-             </a>   --> 
-			  
-			</div>
-			
-
-         
-			 <div class="col-sm-3 d-grid">
-			  
-			  <!--  <button class="btn btn-primary cancelar">Cancelar</button>  -->
-				 
-				
-			    
-				
-              <a class="btn btn-primary btnInsert"        
-                 href='produtos.php?msgError=&msgOk='  role="button">
-                      Cancelar
-              </a>
-				 
-			</div>
-		 
+		   <div class="offset-sm-3  col-sm-3 d-grid">	
+		 	   <button type="submit" class="btn btn-primary">Atualizar</button>  
+		   </div>
+			         
+			 <div class="col-sm-3 d-grid">  					
+              <a class="btn btn-primary "  href='produtos.php'  role="button">
+                  Cancelar
+              </a>				 
+			 </div>		 
 
 		</div>
 	   
 
-
-    <?php 
-          
-       
-   
-      if ( !$successMsg == ""){      
-         
-          echo"
-            <div class='row mb-3'>
-             <div class='offset-sm-3  col-sm-6'>
-
-              <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                 <strong> $successMsg </strong> 
-                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-              </div>
-
-             </div>
-            </div>
-          ";
-         }         
-    
-
-
-
-   
-if( !$errorMsg == "" ) {      
+  <?php 
+              
+   if( !$msgError == "" ) {      
     echo"
       <div class='alert alert-warning alert-dismissible fade show' role='alert'>
-           <strong>$errorMsg</strong> 
+           <strong>$msgError</strong> 
            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
       </div>
     ";
-} 
-
-
+   } 
 ?>
 
-
-	 </form>
+</form>
    
 
-   </div>
+</div>
 
 
- </section>
+</section>
 
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

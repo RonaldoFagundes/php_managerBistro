@@ -71,7 +71,6 @@
 
 
 
-
    public function updateProduto($id, $img, $name, $info, $price, $storage, $make)
    {
     $query = $this->pdo->prepare("UPDATE tb_produtos SET img='$img' , nome='$name',  info='$info' , preco='$price',  estoque='$storage',  producao='$make' WHERE id='$id' ");
@@ -85,7 +84,6 @@
          }     
    
    }
-
 
 
 
@@ -107,34 +105,49 @@
 
 
 
-   public function logar ($email , $password){
+public function selectUser ($email , $password){
+
+    $query = $this->pdo->prepare("SELECT nome FROM tb_users WHERE email = :e AND senha = :s ");
+
+    $query-> bindValue(":e",$email); 
+    $query-> bindValue(":s",$password); 
+    $query-> execute();
+
+    if ($query->rowCount() >0) {
+          $user = $query->fetch();
+          return $user['nome'];  
+      }else{
+         return false ;
+    }
+
+  }
 
 
-         $e = 'bistro@gamil.com';
-         $p = '123456';
-         
-         $user = 'Neyde';
+
+  
 
 
+  
+   public function insertUser($name , $email , $password){       
+   
+      $query = $this->pdo->prepare(" INSERT INTO tb_users (nome, email, senha ) VALUES( '$name', '$email', '$password') ");     
 
+        if ($query->execute()){
+           return true;            
+        }else{
+        $err = $query->errorInfo();
+          $this->setMsg($err[2]);
+            return false; 
+       }    
 
-        if ($e === $email && $p === $password ){
-               $this->setMsg($user);
-               return true;
-          }else{
-               return false ;
-          }
-
-
-          
-          
+         return true;
    }
 
 
 
 
 
-
+   
    
    public function setMsg ($msg){
        $this->msg = $msg;

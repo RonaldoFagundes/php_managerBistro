@@ -1,8 +1,14 @@
 <?php 
 
-$successMsg =   $_GET['msgOk'] ;         
-$errorMsg = $_GET['msgError'];
+
 $arrayProduct = unserialize(urldecode($_GET['product']));
+
+$msgError = "";
+
+   if(isset($_SESSION['msgError'])){          
+      $msgError = ($_SESSION['msgError']) ;
+      }
+
 ?>
 
 
@@ -32,15 +38,10 @@ $arrayProduct = unserialize(urldecode($_GET['product']));
 <section class="container-update"> 
 
 
-
-
 <div class="content-update">
 
 
-
-   <h2>Deletar Produtos</h2>
-
-   
+   <h2>Deletar Produtos</h2>   
 
 
  <div class="info-prod">
@@ -50,15 +51,13 @@ $arrayProduct = unserialize(urldecode($_GET['product']));
     <img src="../img/<?php echo $arrayProduct['img']  ?>.png"/>
   </div>
 
-
-
- <div>    
+ 
    <span>
      <?php 
       echo $arrayProduct['nome']
      ?>
    </span>
- </div>
+ 
 
 
 </div> 
@@ -132,44 +131,23 @@ $arrayProduct = unserialize(urldecode($_GET['product']));
    <input type="hidden" name="producao" value="">
     
 
-   
-   
-   
-  
-
 
    
    <div class="row mb-3">		 
 
-       <div class="offset-sm-3  col-sm-3 d-grid">
+       <div class="offset-sm-3  col-sm-3 d-grid">        
+
+            <button type="submit" class="btn btn-primary">Deletar</button>                    
+
+       </div>
         
-
-            <button type="submit" class="btn btn-primary">Deletar</button>  
-                    
-
-        <!--  <a class="btn btn-primary"        
-          href='../controller/produtos.php?action=delete'  role="button">
-           Deletar
-         </a>   -->
-          
-        </div>
-        
-
      
          <div class="col-sm-3 d-grid">
-          
-           <!-- <button class="btn btn-primary cancelar">Cancelar</button>  -->
-             
-            
-              <!-- <a class="btn btn-outline-primary" href="" role="button">Cancelar</a> -->
-             
-             
-             
-
-              <a class="btn btn-primary btnInsert"        
-                 href='produtos.php?msgError=&msgOk='  role="button">
-                      Cancelar
+         
+              <a class="btn btn-primary"  href='produtos.php'  role="button">
+                Cancelar
               </a>
+
         </div>
      
 
@@ -177,72 +155,28 @@ $arrayProduct = unserialize(urldecode($_GET['product']));
    
 
 
-
-
-
-
-    <?php 
-          
-         
-          if ( !$successMsg == ""){      
-         
-          echo"
-            <div class='row mb-3'>
-             <div class='offset-sm-3  col-sm-6'>
-
-              <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                 <strong> $successMsg </strong> 
-                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-              </div>
-
-             </div>
-            </div>
-          ";
-         }
-                          
-    
-
-
-
-         
-
-
-   
-if( !$errorMsg == "" ) {      
-    echo"
-      <div class='alert alert-warning alert-dismissible fade show' role='alert'>
-           <strong>$errorMsg</strong> 
+  <?php         
+           
+   if( !$msgError == "" ) {      
+      echo"
+        <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+           <strong>$msgError</strong> 
            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-      </div>
-    ";
-} 
+        </div>
+     ";
+   } 
 
-?>
-
-
+ ?>
 
 
-
- </form>
-
-
-
-
-
+</form>
 
 </div>
-
-
-
 
 </section>
 
 
-
-<!-- <script src="../js/function.js"> </script> -->
-
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
 
   

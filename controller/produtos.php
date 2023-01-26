@@ -2,16 +2,15 @@
 
 require_once '../model/crud.php';
 
+session_start();
 
 $crud = new Crud();
 
 
 
 
-
+$msgSuccess = "";
 $msgError = "";
-$msgOk = "";
-
 $product = "";
 
 
@@ -33,40 +32,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
    if  (isset($_POST['insert'])) { 
 
-
     do{ 
 
-
       if( empty($img) || empty($name) || empty($info) || empty($price) || empty($storage) || empty($make)  ){
-
+                 
           $msgError = "Preencha todos os campos !";
-          $msgOk = "";        
+          $_SESSION['msgError'] = $msgError;
+
           break;                 
         
-         }     
-
+         }    
 
 
            if ($crud->insertProduto( $img, $name, $info, $price, $storage, $make)){
                
-             $msgOk = "Produto  ".$name."  inserido com sucesso!";
-             $msgError ="";            
+             $msgSuccess = "Produto  ".$name."  inserido com sucesso!";
+             $_SESSION['msgSuccess'] = $msgSuccess ;
+                        
 
             }else{         
              
-             $msgError = ' erro " '.$crud->getMsg().' " entre em contato o suporte tecnico!';
-             $msgOk = "";           
+              $msgError = ' erro " '.$crud->getMsg().' " entre em contato o suporte tecnico!'; 
+              $_SESSION['msgError'] = $msgError;          
            
             }
 
-    }while(false);
+    }while(false);     
 
-      header("location:../pages/produtos.php?msgError=".$msgError."&msgOk=".$msgOk);    
-      exit;
-
+         header("location:../pages/produtos.php");  
+         exit;
 
      }elseif (isset($_POST['update'])) {
-
         
           $id     = $_POST['id'];   
 
@@ -82,79 +78,66 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           $make     = $_POST['producao'];
 
-
-
       if(  $update = $crud->updateProduto($id, $img, $name, $info, $price, $storage, $make) ){
 
-        $msgOk = "Produto  ".$name."  Atualizado com sucesso!";
-        $msgError ="";
+        $msgSuccess = "Produto  ".$name."  Atualizado com sucesso!";        
+        $_SESSION['msgSuccess'] = $msgSuccess ;
+      
 
       }else {
 
-        $msgError = ' erro " '.$crud->getMsg().' " entre em contato o suporte tecnico!';
-        $msgOk = "";
-         
+        $msgError = ' erro " '.$crud->getMsg().' " entre em contato o suporte tecnico!';    
+       $_SESSION['msgError'] = $msgError;
+
       }
-     
-      header("location:../pages/produtos.php?msgError=".$msgError."&msgOk=".$msgOk);    
+      header("location:../pages/produtos.php");    
       exit;          
-          
-        //  var_dump($_POST["nome"]);
-          
+                      
 
     }elseif (isset($_POST['delete'])) {
 
          $id   = $_POST['id'];
-
  
          if(  $delete = $crud->deleteProduto($id) ){
 
-          $msgOk = "Produto deletado com sucesso!";
-          $msgError ="";
-  
+          $msgSuccess = "Produto deletado com sucesso!";
+          $_SESSION['msgSuccess'] = $msgSuccess ;
+
         }else {
   
           $msgError = ' erro " '.$crud->getMsg().' " entre em contato o suporte tecnico!';
-          $msgOk = "";
-           
+           $_SESSION['msgError'] = $msgError;
+
         }
          
-        header("location:../pages/produtos.php?msgError=".$msgError."&msgOk=".$msgOk);     
-        exit;
-
+        header("location:../pages/produtos.php"); 
+         exit;
 
     }
 
 
-   
-
-
-
 } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
-
 
   $id =  $_GET['id'];
 
   $action =  $_GET['action']; 
 
-  $product = $crud->selectProdutosBy($id);
-
-  //header("location:../pages/index.php?product=" . urlencode(serialize($product)));
-
-
-// header("location:../pages/produtos.php?product=".urlencode(serialize($product))."&msgError=".$msgError."&msgOk=".$msgOk );
+  $product = $crud->selectProdutosBy($id); 
 
      if ($action == 'update'){
-        header("location:../pages/update.php?product=".urlencode(serialize($product))."&msgError=".$msgError."&msgOk=".$msgOk );
+
+        header("location:../pages/update.php?product=".urlencode(serialize($product)));
+        exit;
+
      }
      elseif ($action == 'delete'){
-      header("location:../pages/delete.php?product=".urlencode(serialize($product))."&msgError=".$msgError."&msgOk=".$msgOk );
-   }
 
+      header("location:../pages/delete.php?product=".urlencode(serialize($product)));
+      exit;
+
+    }
 
 exit; 
-
 
  
 } 
@@ -423,3 +406,4 @@ exit;
    
    
    
+

@@ -35,8 +35,11 @@
      
 
 
+
     <h2>Tela de Login </h2>
      
+
+
 
 
     <div class="content-login">
@@ -95,6 +98,7 @@
     </div>
 
 
+
      <div>
 
       <?php     
@@ -129,15 +133,139 @@
      </div>
 
      
+
+
+
+  
+   
+    <button class="btnInsert">
+       <p>Ainda não tem cadastro? cadastre-se!</p>
+    </button> 
+  
+
+     
+     
+
+
+<section id="insert" class="container-modal">
+
+
+  <div class="content-modal" >
+
+
+    <h2>Cadastrar Usuario</h2>
+  
+
+   
+   <!--  <form method="post" action="./controller/login.php" name="form-cad"> -->
+
+   <form id="form_cad" action="./controller/login.php" method="post"  > 
+
+
+    <div class="row mb-3">
+   
+       <label class="col-sm-3 col-form-label">Nome</label>
+    
+       <div class="col-sm-6">
+         <input type="text" class="form-control" name="cadName" value="" id="name"  required>       
+       </div>
+   
+    </div>
+
+
+  <div class="row mb-3">
+   
+   <label class="col-sm-3 col-form-label">E-mail</label>
+
+    <div class="col-sm-6">
+     <input type="text" class="form-control" name="cadEmail" value="" id="email"  required>       
+    </div>
+
+  </div>
+   
+   
+   
+    <div class="row mb-3">
+   
+      <label class="col-sm-3 col-form-label">Senha</label>
+    
+      <div class="col-sm-6">
+         <input type="password" class="form-control"  name="cadPassword" value="" id="password" required>
+      </div>
+   
+   </div>
+   
+   
+      
+        
+   <div class="row mb-3">
+   
+      <div class="offset-sm-3  col-sm-3 d-grid">
+     
+          <!-- 
+            
+           <button type="submit" class="btn btn-primary">Cadastrar</button>   
+
+           <button class="btn btn-primary btn-cad-user">Cadastrar</button>  
+
+        
+           <button type="submit" class="btn btn-primary cad-user" name="cadastrar">Cadastrar</button>  
+         
+
+           <button  class="btn btn-primary cad-user" name="cadastrar">Cadastrar</button> 
+       
+       
+           <input type="button" value="Cadastrar" class="btn btn-primary cad-user" name="cadastrar" >
+
+           <input type="button" value="Cadastrar" name="cadastrar" class="btn btn-primary cad-user"> 
+          
+          -->
+         
+           <a class="btn btn-primary cad-user" name="cadastrar">Cadastrar</a>
+
+      </div>    
+                   
+   </div>
+   
+
+   
+  </form>
+
+
+     
+    <div class="row mb-3">
+    
+        <div class="offset-sm-3  col-sm-3 d-grid">
+      
+          <button class="btn btn-primary btnClose">Cancelar</button> 
+                              
+        </div>
+
+    </div>
+
+    <span role="alert" id="msgError"   aria-hidden="true"></span>
+
+
+ </div>
+
+
+</section>
+
+
+
+
         
  </div>
 
 
 
+
+ <script src="./js/function.js"> </script>
+
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+</script>
 
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </body>
 </html>
