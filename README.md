@@ -1,4 +1,4 @@
-# webBistro
+# managerBistro
 Gerenciador de dados
 
 front-end :  html - css - bootstrap - javascript
