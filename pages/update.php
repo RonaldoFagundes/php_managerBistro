@@ -154,7 +154,7 @@
 		   </div>
 			         
 			 <div class="col-sm-3 d-grid">  					
-              <a class="btn btn-primary "  href='produtos.php'  role="button">
+              <a class="btn btn-primary "  href='../controller/produtos.php?action=reset'  role="button">
                   Cancelar
               </a>				 
 			 </div>		 

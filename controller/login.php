@@ -70,7 +70,7 @@ if (isset($_POST['login'])){
 
   }else {
 
-    $msg = $crud->getMsg();
+    $msg = " error ".$crud->getMsg()." entre em contato com suporte !";
     $_SESSION['login'] = $msg;
     header("location:../index.php");   
     exit;

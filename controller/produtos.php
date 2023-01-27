@@ -7,14 +7,9 @@ session_start();
 $crud = new Crud();
 
 
-
-
 $msgSuccess = "";
 $msgError = "";
 $product = "";
-
-
-
 
 
 
@@ -87,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }else {
 
         $msgError = ' erro " '.$crud->getMsg().' " entre em contato o suporte tecnico!';    
-       $_SESSION['msgError'] = $msgError;
+        $_SESSION['msgError'] = $msgError;
 
       }
       header("location:../pages/produtos.php");    
@@ -118,13 +113,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-  $id =  $_GET['id'];
+   $action =  $_GET['action']; 
 
-  $action =  $_GET['action']; 
-
-  $product = $crud->selectProdutosBy($id); 
-
+ 
      if ($action == 'update'){
+
+      $id =  $_GET['id'];
+      $product = $crud->selectProdutosBy($id);  
 
         header("location:../pages/update.php?product=".urlencode(serialize($product)));
         exit;
@@ -132,7 +127,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      }
      elseif ($action == 'delete'){
 
+      $id =  $_GET['id'];
+      $product = $crud->selectProdutosBy($id); 
       header("location:../pages/delete.php?product=".urlencode(serialize($product)));
+      exit;
+
+    }elseif ($action == 'reset'){
+
+      header("location:../pages/produtos.php");
+      $_SESSION['msgSuccess'] = "" ;
+      $_SESSION['msgError'] = "";
       exit;
 
     }

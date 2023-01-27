@@ -1,15 +1,9 @@
 <?php
-   /* 
-   $successMsg = $_GET['msgOk'] ; 
-   $errorMsg   = $_GET['msgError']; 
-   */
+   
    session_start();
    
    $msg = "" ; 
-   //$successMsg = $_SESSION['login'] ;
-    
-   //$successMsg = "" ; 
-  // $errorMsg   = "";
+  
 ?>
 
 
@@ -153,7 +147,7 @@
   <div class="content-modal" >
 
 
-    <h2>Cadastrar Usuario</h2>
+    <h2>Cadastrar Usuário</h2>
   
 
    
