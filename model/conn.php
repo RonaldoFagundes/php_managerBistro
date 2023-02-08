@@ -16,10 +16,10 @@
   
       public function pdo()
       {
-       $this->host="localhost";
-       $this->user="RFagundes";
-       $this->password="UREgoOymPF6LWa7H";
-       $this->db="db_bistro";
+       $this->host="";
+       $this->user="";
+       $this->password="";
+       $this->db="";
  
        $this->dsn = "mysql:host=$this->host;dbname=$this->db;charset=UTF8";
 
